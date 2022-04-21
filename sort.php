@@ -3,7 +3,7 @@ if (isset($_POST['sort'])) :
     require_once 'db.php';
     $sort = $_POST['sort'];
 
-    $query = mysqli_query($database, "SELECT * FROM photocard ORDER BY namaPhoto " . $sort . "");
+    $query = mysqli_query($database, "SELECT * FROM film ORDER BY title " . $sort . "");
     while ($row = mysqli_fetch_object($query)) :
 ?>
     <div class="col-sm-auto mt-3">

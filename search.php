@@ -3,7 +3,7 @@
         require_once 'db.php';
         $search = $_POST['search'];
 
-        $query = mysqli_query($database, "SELECT * FROM photocard WHERE namaPhoto LIKE '%" . $search . "%'");
+        $query = mysqli_query($database, "SELECT * FROM film WHERE title LIKE '%" . $search . "%'");
         while ($row = mysqli_fetch_object($query)):
 ?>
     <div class="col-sm-auto mt-3">

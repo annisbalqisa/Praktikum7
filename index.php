@@ -13,19 +13,16 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/0d95b64c38.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	<title>202410101045_Pertemuan6</title>
+	<title>202410101045_Praktikum 7</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-light bg-info" style="--bs-bg-opacity: .5;">
-			<div class="container-fluid">
-				<a class="navbar-brand">MOVIE LIST</a>
-				<!-- <form class="d-flex input-group w-auto"> -->
-					<!-- <input type="text" class="form-control" id="search" placeholder="Search photocard..." aria-label="Recipient's username" aria-describedby="button-addon2" /> -->
-					<!-- <span class="input-group-text"><i class="bi bi-search-heart"></i></span> -->
-				<!-- </form> -->
-			</div>
-	</nav>
+<div>
+	<h1 class="text-dark text-center">MOVIE LIST</h1>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end me-lg-5 mb-lg-3">
+	<button class="btn btn-primary" type="button"><i class="fas fa-plus"></i> Create</button>
+</div>
 	<aside>
 		<div class="card mb-4">
 			<div class="card-header">
@@ -70,7 +67,7 @@
       $query = mysqli_query($database, "SELECT * FROM film");
       while ($row = mysqli_fetch_object($query)) :
       ?>
-        <div class="col-sm-auto mt-3">
+        <div class="col-sm-3 mb-3">
           <div class="card" style="width: 15rem">
 						<a href="">
             	<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnTnlyQqGAGDEDgqouPXXC27s3DTdAol5KEPJQCp9d5XkDeI_3" class="card-img-top" alt="" />

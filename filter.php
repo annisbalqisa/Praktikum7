@@ -3,7 +3,7 @@
         require_once 'db.php';
         $filter = $_POST['filter'];
 
-        $query = mysqli_query($database, "SELECT * FROM photocard WHERE harga BETWEEN $filter ");
+        $query = mysqli_query($database, "SELECT * FROM film WHERE rating ='" . $filter . "'");
         while ($row = mysqli_fetch_object($query)):
 ?>
   <div class="col-sm-auto mt-3">
