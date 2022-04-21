@@ -20,31 +20,51 @@
 	<nav class="navbar navbar-light bg-info" style="--bs-bg-opacity: .5;">
 			<div class="container-fluid">
 				<a class="navbar-brand">MOVIE LIST</a>
-				<form class="d-flex input-group w-auto">
-					<input type="text" class="form-control" id="search" placeholder="Search photocard..." aria-label="Recipient's username" aria-describedby="button-addon2" />
-					<span class="input-group-text"><i class="bi bi-search-heart"></i></span>
-				</form>
+				<!-- <form class="d-flex input-group w-auto"> -->
+					<!-- <input type="text" class="form-control" id="search" placeholder="Search photocard..." aria-label="Recipient's username" aria-describedby="button-addon2" /> -->
+					<!-- <span class="input-group-text"><i class="bi bi-search-heart"></i></span> -->
+				<!-- </form> -->
 			</div>
 	</nav>
+	<aside>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-sort-alpha-down"></i> Sorting
+			</div>
+			<div class="card-body">
+				<p class="card-text">Sort by Movie Title</p>
+				<select class="form-select" id="sort" aria-label="Default select example">
+					<option value="ASC">Sort by Name Ascending</option>
+					<option value="DESC">Sort by Name Descending</option>
+				</select>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header">
+				<i class="fas fa-filter"></i> Filters
+			</div>
+			<div class="card-body">
+				<p class="card-text">Filter by Movie Rating</p>
+				<select class="form-select mb-3" id="filter" aria-label="Default select example">
+					<option class="text-muted" selected>Movie Rating</option>
+					<?php
+					require_once 'db.php';
+					$query = mysqli_query($database, "SELECT DISTINCT rating FROM film");
+					while ($row = mysqli_fetch_object($query)) :
+					?>
+						<option value="<?= $row->rating; ?>"><?= $row->rating; ?></option>
+					<?php endwhile; ?>
+				</select>
+				<p class="card-text">Search by Movie Title</p>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" id="search" placeholder="Search title..." aria-label="Recipient's username" aria-describedby="button-addon2">
+					<button class="btn btn-primary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
+		</div>
+	</aside>
   <div class="container">
-		<button type="button" class="btn btn-primary float-end"><i class="fas fa-plus-circle"></i> Create</button>
-    <div class="row mt-5">
-      <div class="col-md input-group mb-3">
-        <select class="form-select" id="filter" aria-label="Default select example">
-          <option class="text-muted" selected>Filter Harga</option>
-          <option value="0 AND 80000">0 - 80.000</option>
-          <option value="80000 AND 150000">80.000 - 150.000</option>
-          <option value="150000 AND 300000">150.000 - 300.000</option>
-        </select>
-      </div>
-      <div class="col-md input-group mb-3">
-        <select class="form-select" id="sort" aria-label="Default select example">
-          <option value="ASC">Sort by Name Ascending</option>
-          <option value="DESC">Sort by Name Descending</option>
-        </select>
-      </div>
-    </div>
-    <div class="row" id="content">
+		<div class="row" id="content">
       <?php
       require_once 'db.php';
       $query = mysqli_query($database, "SELECT * FROM film");
@@ -52,7 +72,9 @@
       ?>
         <div class="col-sm-auto mt-3">
           <div class="card" style="width: 15rem">
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnTnlyQqGAGDEDgqouPXXC27s3DTdAol5KEPJQCp9d5XkDeI_3" class="card-img-top" alt="" />
+						<a href="">
+            	<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnTnlyQqGAGDEDgqouPXXC27s3DTdAol5KEPJQCp9d5XkDeI_3" class="card-img-top" alt="" />
+						</a>
             <div class="card-body">
               <h5 class="card-title"><?= $row->title; ?></h5>
               <div class="card-title text-secondary"><?= $row->release_year; ?></div>

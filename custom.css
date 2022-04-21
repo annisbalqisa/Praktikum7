@@ -5,5 +5,15 @@
     width: 100%;
     height: 20vw;
     object-fit: cover;}
+aside {
+  float: left;
+  width: 20%;
+  margin-left: 40px;
+}
 
+.container {
+  float: right;
+  width: 70%;
+  margin-right: 40px;
+}
 body { background: rgb(220, 248, 255) !important; }
